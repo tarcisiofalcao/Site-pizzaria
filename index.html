@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="pizzas.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+</head>
+<body>
+    <div class="models">
+
+        <div class="pizza_item">
+
+            <div class="pizza_item-img">
+                <div class="pizza_info">
+                    <h1 class="pizza_info-name"></h1>
+                    <p class="pizza_info-desc"></p>
+                </div>
+            </div>
+            <div class="pizza_size-title">Tamanhos:</div>
+            <div class="pizza_price-title">Preço:</div>
+            <div class="pizza_sizes">
+                <div class="size" data-key="0"></div>
+                <div class="size" data-key="1"></div>
+                <div class="size selected-size" data-key="2"></div>
+            </div>
+            <div class="pizza_price">--</div>
+            <div class="pizza_add-btn">Adicionar</div>
+
+        </div>
+        
+    </div>
+    <header>
+        <div class="header_top">
+            <div class="logo_img">La Pizzaria</div>
+            <div class="contact">
+                <h4>CONTATO</h4>
+                <h1>(00) 00000-0000</h1>
+            </div>
+        </div>
+        <nav class="menu_area">
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#pizzas">Pizzas</a></li>
+                <li><a href="#contact">Contato</a></li>
+                <li class="cart-openner"><span>0</span>	<i class='fas fa-shopping-cart'></i></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="home">
+
+        </div>
+        <div id="pizzas">
+            <div class="pizza_area"></div>
+        </div>
+    </main>
+    <footer>
+        <div id="contact"></div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
