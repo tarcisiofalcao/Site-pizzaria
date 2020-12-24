@@ -63,25 +63,39 @@ document.querySelectorAll('.pizza_add-btn').forEach((item, index)=>{
                 price: pizzaJson[pizzaKey].price[size]
             });
         }
-        document.querySelector('.cart-openner span').innerHTML = cart.length;
+        updateCart()
     })
 })
 
 function updateCart(){
     document.querySelector('.cart').innerHTML = '';
-    
-    for(let i=0; i<cart.length; i++){
-        
+    document.querySelector('.cart-openner span').innerHTML = cart.length;
+    let subTotal = 0;
+    for(let i in cart){
         let cartItem = document.querySelector('.models .cart_item').cloneNode(true);
-        let item = cart[i];
-        console.log(item);
-        document.querySelector('.cart_item-img').style.backgroundImage = `url(${item.img})`;
-        document.querySelector('.cart_item-namensize').innerHTML = `${item.name} (${item.sizeName})`;
-        document.querySelector('.cart_item-qt').innerHTML = item.qt;
-        document.querySelector('.cart_item-price').innerHTML = item.price;
+        cartItem.querySelector('.cart_item-img').style.backgroundImage = `url(${cart[i].img})`;
+        cartItem.querySelector('.cart_item-namensize').innerHTML = `${cart[i].name} (${cart[i].sizeName})`;
+        cartItem.querySelector('.cart_item-qt').innerHTML = cart[i].qt;
 
+        let itemTotalPrice = cart[i].price*cart[i].qt;
+        subTotal += itemTotalPrice; 
+        cartItem.querySelector('.cart_item-price').innerHTML = itemTotalPrice.toFixed(2).replace('.',',');
+        document.querySelector('.subtotal span:last-child').innerHTML = `R$ ${subTotal.toFixed(2).replace('.',',')}`;
+
+        cartItem.querySelector('.cart_item-minusBtn').addEventListener('click', (e)=>{
+            if(cart[i].qt > 1){
+                cart[i].qt--
+            }else{
+                cart.splice(i, 1);
+            }
+            updateCart();
+        });
+        cartItem.querySelector('.cart_item-plusBtn').addEventListener('click', (e)=>{
+            cart[i].qt++
+            updateCart();
+        });
         document.querySelector('.cart').append(cartItem);
-    };
+    }
 }
 
 

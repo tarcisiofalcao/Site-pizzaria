@@ -11,6 +11,9 @@ html{
 body{
     background-color: #ffcc99;
 }
+button:focus{
+    outline: none;
+}
 ul{
     list-style: none;
 }
@@ -263,7 +266,6 @@ main{
     right: 0;
     bottom: 0;
     left: 0;
-    font-family: Arial, Helvetica, sans-serif;
     background: rgba(0,0,0,0.9);
     z-index: 100;
     opacity:0;
@@ -279,15 +281,102 @@ main{
     opacity: 1;
     pointer-events: auto;
   }
-  .cart_modal > div {
+.cart_modal > div {
     width: 400px;
-    height: 500px;
+    height: auto;
     position: relative;
     padding: 15px 20px;
     background: #fff;
-  }
+    border-radius: 10px;
+}
+.close{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ff6633;
+    color: ivory;
+    text-align: center;
+    line-height: 30px;
+    top: -15px;
+    right: -15px;
+}
+.cart_item{
+    width: 100%;
+    height: 100px;
+    display: grid;
+    grid-template-columns: 3.5fr 30px 30px 30px 2.5fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "img desc desc desc desc"
+                        "img mbt qt pbt price";
+    grid-gap: 5px;
+    margin-bottom: 10px;
+}
+.cart_item-img{
+    grid-area: img;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.cart_item-namensize{
+    grid-area: desc;
+    color: #350400;
+    font-family: 'Comfortaa', cursive;
+    font-size: 1rem;
+    font-weight: bolder;
+    text-align: center;
+    
+}
+.cart_item-minusBtn{
+    grid-area: mbt;
+}
+.cart_item-plusBtn{
+    grid-area: pbt;
+}
+.cart_item-minusBtn,
+.cart_item-plusBtn{
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 50px;
+    font-family: 'Comfortaa', cursive;
+}
+.cart_item-qt{
+    grid-area: qt;
+    text-align: center;
+    line-height: 50px;
+    font-size: 1.5rem;
+}
+.cart_item-price{
+    grid-area: price;
+    text-align: center;
+    font-family: 'Comfortaa', cursive;
+    font-size: 2rem;
+    font-weight: bolder;
+    color: #ff6633;
+    line-height: 50px;
+}
+.cart_order-btn{
+    width: 90%;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #ff6633;
+    color: ivory;
+    font-weight: bolder;
+    font-family: 'Comfortaa', cursive;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 40px;
+}
+.cart_total{
+    display: flex;
+    justify-content: space-between;
+}
 footer{
     width: 100%;
     height: 400px;
     background-color: #350400;
+    
 }
