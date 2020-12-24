@@ -48,6 +48,7 @@ header{
 }
 .contact{
     color: ivory;
+    padding-right: 10px;
 }
 .menu_area{
     width: 100%;
@@ -78,6 +79,7 @@ header{
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    cursor: pointer;
 }
 .cart-openner span{
     display: block;
@@ -87,6 +89,7 @@ header{
     color: ivory;
     width: 20px;
     height: 20px;
+    line-height: 18px;
     border-radius: 50%;
     top: 0;
     right: 0;
@@ -99,8 +102,6 @@ header{
 /*pagina home*/
 main{
     margin-top: 140px;
-    overflow-y: scroll;
-    scroll-behavior: smooth;
 }
 #home{
     width: 100%;
@@ -117,6 +118,18 @@ main{
     margin: 0 auto;
     padding: 10px;
 }
+#pizzas > h1{
+    width: 100%;
+    text-align: center;
+    font-size: 3rem;
+    color: #350400;
+    padding: 0.5rem;
+    font-family: 'Comfortaa', cursive;
+    border-top: 2px solid #350400;
+    border-bottom: 2px solid #350400;
+}
+
+
 .pizza_area{
     display: flex;
     justify-content: space-evenly;
@@ -167,6 +180,23 @@ main{
 }
 .pizza_price{
     grid-area: price;
+    font-size: 2rem;
+    font-family: 'Comfortaa', cursive;
+    color: #ff6633;
+    font-weight: bolder;
+    text-align: center;
+    position: relative;
+    padding-top: 35px;
+    border-left: 2px solid #ff6633;
+}
+.pizza_price::after{
+    content: "R$";
+    font-size: 1rem;
+    color: #ff6633;
+    font-weight: bolder;
+    position: absolute;
+    top: 10px;
+    left: 5px;
 }
 .pizza_add-btn{
     grid-area: add-btn;
@@ -187,6 +217,7 @@ main{
     flex: 1;
     position: relative;
     opacity: 0.5;
+    cursor: pointer;
 }
 .selected-size{
     opacity: 1;
@@ -225,6 +256,36 @@ main{
     background-image:url(images/pizza-large.png);
 }
 /*area de contato*/
+
+.cart_modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: rgba(0,0,0,0.9);
+    z-index: 100;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cart_modal:target {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .cart_modal > div {
+    width: 400px;
+    height: 500px;
+    position: relative;
+    padding: 15px 20px;
+    background: #fff;
+  }
 footer{
     width: 100%;
     height: 400px;

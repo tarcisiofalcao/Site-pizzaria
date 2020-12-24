@@ -16,7 +16,6 @@
     <div class="models">
 
         <div class="pizza_item">
-
             <div class="pizza_item-img">
                 <div class="pizza_info">
                     <h1 class="pizza_info-name"></h1>
@@ -32,9 +31,16 @@
             </div>
             <div class="pizza_price">--</div>
             <div class="pizza_add-btn">Adicionar</div>
-
         </div>
-        
+
+        <div class="cart_item">
+            <div class="cart_item-img"></div>
+            <div class="cart_item-namensize"></div>
+            <button class="cart_item-minusBtn">-</button>
+            <div class="cart_item-qt"></div>
+            <button class="cart_item-plusBtn">+</button>
+            <div class="cart_item-price"></div>
+        </div>
     </div>
     <header>
         <div class="header_top">
@@ -49,7 +55,7 @@
                 <li><a href="#home">Início</a></li>
                 <li><a href="#pizzas">Pizzas</a></li>
                 <li><a href="#contact">Contato</a></li>
-                <li class="cart-openner"><span>0</span>	<i class='fas fa-shopping-cart'></i></li>
+                <li class="cart-openner" onclick="updateCart()"><a href="#openModal"><span>0</span><i class='fas fa-shopping-cart'></i></a></li>
             </ul>
         </nav>
     </header>
@@ -58,12 +64,32 @@
 
         </div>
         <div id="pizzas">
+            <h1>Pizzas</h1>
             <div class="pizza_area"></div>
         </div>
     </main>
     <footer>
         <div id="contact"></div>
     </footer>
+    <section id="openModal" class="cart_modal">
+        <div class="cart_area">
+            <a href="#closeModal" title="Fechar" class="close">X</a>
+            <div class="cart"></div>
+            <div class="cart_total subtotal">
+                <span>Subtotal</span>
+                <span>R$ --</span>
+            </div>
+            <div class="cart_total desconto">
+                <span>Desconto(x%)</span>
+                <span>R$ --</span>
+            </div>
+            <div class="cart_total total">
+                <span>Total</span>
+                <span>R$ --</span>
+            </div>
+            <div class="cart_order-btn">Fazer Pedido</div>
+        </div>
+    </section>
 
     <script src="script.js"></script>
 </body>
