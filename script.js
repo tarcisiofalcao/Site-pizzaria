@@ -1,8 +1,8 @@
 let cart = [];
 let itemQt = 1;
-
-//Listagem das Pizzas
-
+//--------------------------------------------------------------------------------------------------------
+//listando as pizzas e inserindo ao documento
+//--------------------------------------------------------------------------------------------------------
 pizzaJson.map((item, index)=>{
     let pizzaItem = document.querySelector('.models .pizza_item').cloneNode(true);
 
@@ -30,7 +30,9 @@ document.querySelectorAll('.size').forEach((size, sizeIndex)=>{
         pizzaArea.innerHTML = prices.toFixed(2).replace('.',',');
     })
 })
-
+//--------------------------------------------------------------------------------------------------------
+//adicionando pizzas ao carrinho
+//--------------------------------------------------------------------------------------------------------
 document.querySelectorAll('.pizza_add-btn').forEach((item, index)=>{
     item.addEventListener('click', (e)=>{
         e.preventDefault();
@@ -50,7 +52,6 @@ document.querySelectorAll('.pizza_add-btn').forEach((item, index)=>{
                 sizeName = 'G';
                 break;
         }
-        
         if(key > -1){
             cart[key].qt += itemQt; 
         }else{
@@ -66,7 +67,9 @@ document.querySelectorAll('.pizza_add-btn').forEach((item, index)=>{
         updateCart()
     })
 })
-
+//--------------------------------------------------------------------------------------------------------
+//atualizando o carrinho
+//--------------------------------------------------------------------------------------------------------
 function updateCart(){
     document.querySelector('.cart').innerHTML = '';
     document.querySelector('.cart-openner span').innerHTML = cart.length;
@@ -81,24 +84,25 @@ function updateCart(){
         subTotal += itemTotalPrice; 
         cartItem.querySelector('.cart_item-price').innerHTML = itemTotalPrice.toFixed(2).replace('.',',');
         document.querySelector('.subtotal span:last-child').innerHTML = `R$ ${subTotal.toFixed(2).replace('.',',')}`;
-
+        //adicionando funcionalidade ao btn minus...
         cartItem.querySelector('.cart_item-minusBtn').addEventListener('click', (e)=>{
             if(cart[i].qt > 1){
                 cart[i].qt--
             }else{
                 cart.splice(i, 1);
+                subTotal = 0;
             }
+            
             updateCart();
         });
+        //adicionando funcionalidade ao btn minus...
         cartItem.querySelector('.cart_item-plusBtn').addEventListener('click', (e)=>{
             cart[i].qt++
             updateCart();
         });
         document.querySelector('.cart').append(cartItem);
-    }
+    }       
 }
-
-
+document.querySelector('.cart-openner').addEventListener('click', ()=>{
     
-        
-
+})
